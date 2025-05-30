@@ -34,24 +34,24 @@ jobs:
           path: test-results/results.txt
 
   deploy:
-  needs: test
-  runs-on: [self-hosted, windows]
+    needs: test
+    runs-on: [self-hosted, windows]
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Download test results
-      uses: actions/download-artifact@v4
-      with:
-        name: test-results
-        path: ./test-results
+      - name: Download test results
+        uses: actions/download-artifact@v4
+        with:
+          name: test-results
+          path: ./test-results
 
-    - name: Display test results
-      run: type .\test-results\results.txt
+      - name: Display test results
+        run: type .\test-results\results.txt
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Start app in background
-      run: start /B npm start
+      - name: Start app in background
+        run: start /B npm start
