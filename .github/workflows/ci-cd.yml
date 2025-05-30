@@ -24,8 +24,12 @@ jobs:
 
       - name: Run tests and save output
         run: |
-          mkdir -p test-results
-          npm test > test-results/results.txt || true
+          mkdir test-results
+          try {
+            npm test | Out-File -FilePath test-results/results.txt -Encoding utf8
+          } catch {
+            "Test failed, continuing..." | Out-File -Append test-results/results.txt
+          }
 
       - name: Upload test results artifact
         uses: actions/upload-artifact@v4
