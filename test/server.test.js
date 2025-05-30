@@ -43,3 +43,9 @@ describe('Server Tests', () => {
     });
   });
 });
+
+describe('Basic test', () => {
+  it('should return true', () => {
+    expect(true).to.be.true;
+  });
+});
