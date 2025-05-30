@@ -44,8 +44,8 @@ describe('Server Tests', () => {
   });
 });
 
-describe('Basic test', () => {
-  it('should return true', () => {
+describe('Ostad Module-3 | CI|CD Test=> Ashiq', () => {
+  it('Is all okay => should return true', () => {
     expect(true).to.be.true;
   });
 });
